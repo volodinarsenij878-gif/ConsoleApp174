@@ -1,0 +1,41 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Program25
+{
+    internal class Program
+    {
+        static void Main()
+        {
+            Console.Write("Введите радиус круга: ");
+            if (!double.TryParse(Console.ReadLine(), out double radius) || radius < 0)
+            {
+                Console.WriteLine("Ошибка: радиус должен быть неотрицательным числом.");
+                return;
+            }
+
+            Console.Write("Введите сторону квадрата: ");
+            if (!double.TryParse(Console.ReadLine(), out double side) || side < 0)
+            {
+                Console.WriteLine("Ошибка: сторона квадрата должна быть неотрицательным числом.");
+                return;
+            }
+
+            double areaCircle = Math.PI * radius * radius;
+            double areaSquare = side * side;
+
+            Console.WriteLine($"Площадь круга: {areaCircle:F2}");
+            Console.WriteLine($"Площадь квадрата: {areaSquare:F2}");
+
+            if (areaCircle > areaSquare)
+                Console.WriteLine("Площадь круга больше.");
+            else if (areaSquare > areaCircle)
+                Console.WriteLine("Площадь квадрата больше.");
+            else
+                Console.WriteLine("Площади равны.");
+        }
+    }
+}
